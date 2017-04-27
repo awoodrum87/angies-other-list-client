@@ -15,17 +15,30 @@
       <!-- bootstrap columns to make the page responsive -->
 
     <div class="row">
-      <div class="col-xs-6 col-sm-4"></div>
-      <div class="col-xs-6 col-sm-4"><div class="form-group has-success has-feedback">
-  <label class="control-label" for="inputSuccess2">Input with success</label>
-  <input type="text" class="form-control" id="inputSuccess2" aria-describedby="inputSuccess2Status">
-  <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
-  <span id="inputSuccess2Status" class="sr-only">(success)</span>
-</div></div>
-      <!-- Optional: clear the XS cols if their content doesn't match in height -->
-      <!-- <div class="clearfix visible-xs-block"></div> -->
-      <div class="col-xs-6 col-sm-4"></div>
+  <div class="col-xs-6 col-sm-4">placeholder</div>
+  <div class="col-xs-6 col-sm-4">
+    <h1>Angie's Other List</h1><br>
+    <p>Putting crappy customers on blast since 2017.</p>
   </div>
+  <!-- Optional: clear the XS cols if their content doesn't match in height -->
+  <!-- <div class="clearfix visible-xs-block"></div> -->
+
+  <!-- drop down menu -->
+  <div class="col-xs-6 col-sm-4">
+    <div class="dropdown" id = "site-options">
+      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            Options
+            <span class="caret"></span>
+          </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+        <li>Create an Account</li>
+        <li>Login</li>
+        <li role="separator" class="divider"></li>
+        <li>See all reviews</li>
+      </ul>
+    </div>
+  </div>
+</div>
 
     </body>
 </html>
