@@ -18,10 +18,55 @@
           <h3>Create Account</h3>
           <input type="text" name="credentials[email]" value="" placeholder="email">
           <input type="password" name="credentials[password]" value="" placeholder="password">
-
           <input type="submit" name="submit" value="Create Account">
         </fieldset>
       </form>
+      </div>
+      <div class="create-profile">
+      <form id="create-profile">
+        <fieldset>
+          <h3>Create Profile</h3>
+          <input type="text" name="reviewer[username]" value="" placeholder="username">
+          <input type="text" name="reviewer[industry]" value="" placeholder="industry">
+          <input type="submit" name="submit" value="Create Profile">
+        </fieldset>
+      </form>
+      </div>
+      <div class="update-profile">
+        <form id="update-profile">
+          <fieldset>
+            <h3>Update Profile</h3>
+            <input type="text" name="reviewer[industry]" value="" placeholder="New Industry">
+            <!-- <input type="text" name="reviewer[new]" value="" placeholder="New Industry"> -->
+            <input type="submit" name="submit" value="Update Profile">
+          </fieldset>
+        </form>
+
+      </div>
+      <div class="create-review">
+      <form id="create-review">
+        <fieldset>
+          <h3>Create Review</h3>
+          <input type="date" name="review[date]" value="" placeholder="">
+          <!-- <input type="text" name="reviews[text]" value="" placeholder="review text"> -->
+          <textarea rows="2" cols="25" name="review[text]" placeholder="Review Text"> </textarea>
+          <input type="submit" name="submit" value="Publish Review">
+        </fieldset>
+      </form>
+
+      </div>
+      <div class="update-review">
+      <form id="update-review">
+        <fieldset>
+          <h3>Update Review</h3>
+          <!-- <input type="text" name="review[old]" value="" placeholder="Old Review"> -->
+          <textarea rows="2" cols="25" name="review[old]" placeholder="Old Review"> </textarea>
+          <!-- <input type="text" name="review[new]" value="" placeholder="New Review"> -->
+          <textarea rows="2" cols="25" name="review[new]" placeholder="New Review"> </textarea>
+          <input type="submit" name="submit" value="Modify Review">
+        </fieldset>
+      </form>
+
       </div>
     <div class="login">
     <form id="login">
@@ -48,9 +93,28 @@
   <form id='logout'>
     <fieldset>
       <h3>Logout</h3>
-      <input type="submit" name="submit" value="Logout">
+      <!-- <input type="submit" name="submit" value="Logout"> -->
+      <input type="submit" class="btn btn-info" value="Logout">
     </fieldset>
   </form>
+</div>
+<div class = 'show-reviews'>
+<form id='show-reviews'>
+  <fieldset>
+    <h3>Read Reviews</h3>
+    <!-- <input type="submit" name="submit" value="Logout"> -->
+    <input type="submit" class="btn btn-info" value="Read Reviews">
+  </fieldset>
+</form>
+</div>
+<div class = 'delete-reviews'>
+<form id='delete-reviews'>
+  <fieldset>
+    <h3>Delete Review</h3>
+    <!-- <input type="submit" name="submit" value="Logout"> -->
+    <input type="submit" class="btn btn-info" value="Delete Review">
+  </fieldset>
+</form>
 </div>
 
 
