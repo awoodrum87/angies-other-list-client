@@ -1,6 +1,7 @@
 'use strict'
 
 const store = require('../store.js')
+const showAllReviews = require('../templates/reviews_all_listing.handlebars')
 
 const createReviewSuccess = (data) => {
   console.log('create review success. Data is ', data)
@@ -33,8 +34,10 @@ const updateReviewFailure = (error) => {
 }
 
 const getReviewsSuccess = (data) => {
-  console.log('get reviews success')
-  console.log('get reviews data is', data)
+  console.log('get reviews button works')
+  console.log(data)
+  let showReviewsHTML = showAllReviews({reviews: data.reviews})
+  $('.content').append(showReviewsHTML)
 }
 
 const getReviewsFailure = (error) => {
