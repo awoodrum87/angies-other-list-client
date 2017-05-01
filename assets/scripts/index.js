@@ -14,9 +14,18 @@ $(() => {
 require('./example')
 const authEvents = require('./auth/events.js')
 const profileEvents = require('./profile/events.js')
-
+const reviewEvents = require('./reviews/events.js')
 // on document ready
 $(() => {
+  $('#logout').hide()
+  $('#ch-password').hide()
+  $('#show-reviews').hide()
+  $('#cr-profile').hide()
+  $('#delete-review').hide()
+  $('#update-profile').hide()
+  $('#create-review').hide()
+  $('#update-review').hide()
   authEvents.clickHandlers()
   profileEvents.clickHandlers()
+  reviewEvents.clickHandlers()
 })

@@ -14,6 +14,18 @@ const createAccountFailure = (error) => {
 const loginSuccess = (data) => {
   store.user = data.user
   console.log('login success. Data is ', data)
+  $('.welcome-page').hide()
+  $('#initiate-login').hide()
+  $('#get-started').hide()
+  $('#legal-statement').hide()
+  $('#logout').show()
+  $('#ch-password').show()
+  $('#cr-profile').show()
+  $('#delete-review').show()
+  $('#update-profile').show()
+  $('#create-review').show()
+  $('#update-review').show()
+  $('#show-reviews').show()
 }
 
 const loginFailure = (error) => {
@@ -24,6 +36,20 @@ const loginFailure = (error) => {
 const logoutSuccess = (data) => {
   store.user = null
   console.log('sign out sucess')
+  $('.welcome-page').show()
+  $('#logout').hide()
+  $('#ch-password').hide()
+  $('#cr-profile').hide()
+  $('#initiate-login').show()
+  $('#get-started').show()
+  $('#legal-statement').show()
+  $('#update-review').hide()
+  $('#ch-password').hide()
+  $('#cr-profile').hide()
+  $('#delete-review').hide()
+  $('#update-profile').hide()
+  $('#create-review').hide()
+  $('#show-reviews').hide()
 }
 const logoutFailure = (error) => {
   console.error(error)
@@ -37,15 +63,6 @@ const changePasswordFailure = (error) => {
   console.error(error)
 }
 
-// const createProfileSuccess = (data) => {
-//   console.log('create profile success. Data is ', data)
-// }
-//
-// const createProfileFailure = (error) => {
-//   // console.error(error)
-//   console.log('create profile failure. Error is ', error)
-// }
-
 module.exports = {
   createAccountSuccess,
   createAccountFailure,
@@ -55,6 +72,4 @@ module.exports = {
   logoutFailure,
   changePasswordSuccess,
   changePasswordFailure
-  // createProfileSuccess,
-  // createProfileFailure
 }

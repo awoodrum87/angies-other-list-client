@@ -44,22 +44,11 @@ const onChangePassword = function (event) {
     .catch(ui.changePasswordFailure)
 }
 
-// const onCreateReviewer = function (event) {
-//   event.preventDefault()
-//   console.log('data is ', data)
-//   console.log('create reviewer click is heard')
-//   const data = getFormFields(this)
-//   api.createReviewer(data)
-//     .then(ui.createProfileSuccess)
-//     .catch(ui.createProfileFailure)
-// }
-
 const clickHandlers = () => {
   $('#create-account').on('submit', onCreateAccount)
   $('#login').on('submit', onLogin)
-  $('#logout').on('submit', onLogout)
+  $('#logout').on('click', onLogout)
   $('#change-password').on('submit', onChangePassword)
-  // $('#create-profile').on('submit', onCreateReviewer)
 }
 
 module.exports = {

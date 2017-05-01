@@ -12,26 +12,174 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="container-fluid">
-      <div class="create-account">
-      <form id="create-account">
-        <fieldset>
-          <h3>Create Account</h3>
-          <input type="text" name="credentials[email]" value="" placeholder="email">
-          <input type="password" name="credentials[password]" value="" placeholder="password">
-          <input type="submit" name="submit" value="Create Account">
-        </fieldset>
-      </form>
+      <!-- Nav Bar with Buttons -->
+      <div class="button-div">
+        <input type="submit" class="btn btn-danger btn-lg" id="show-reviews"value="Read Reviews">
+        <input type="submit" class="btn btn-danger btn-lg" id="get-started" data-toggle="modal" data-target="#getStartedModal" value="Get Started">
+        <input type="submit" class="btn btn-danger btn-lg" id="legal-statement" data-toggle="modal" data-target="#legalModal" value="Legal Statement">
+        <input type="submit" class="btn btn-danger btn-lg" id="initiate-login" data-toggle="modal" data-target="#initiateLogin"value="Login">
+        <input type="submit" class="btn btn-danger btn-lg" id="logout" value="Logout">
+        <input type="submit" class="btn btn-danger btn-lg" id="ch-password" data-toggle="modal" data-target="#chPassword"value="Change Password">
+        <input type="submit" class="btn btn-danger btn-lg" id="cr-profile" data-toggle="modal" data-target="#crProfile"value="Create Profile">
       </div>
-      <div class="create-profile">
-      <form id="create-profile">
-        <fieldset>
-          <h3>Create Profile</h3>
-          <input type="text" name="reviewer[username]" value="" placeholder="username">
-          <input type="text" name="reviewer[industry]" value="" placeholder="industry">
-          <input type="submit" name="submit" value="Create Profile">
-        </fieldset>
-      </form>
+      <p class='cr-err-message'></p>
+
+      <!-- error handling modal -->
+      <div id="cr-err-modal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- error handling content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Error!</h4>
+            </div>
+            <div class="modal-body">
+              <p>Create a profile to publish reviews.</p>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">OK!</button>
+            </div>
+          </div>
+        </div>
       </div>
+      <!-- Create Profile modal -->
+      <div id="crProfile" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Create Profile content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Create Profile</h4>
+            </div>
+            <div class="modal-body">
+              <form id="create-profile">
+                <fieldset>
+                  <input type="text" name="reviewer[username]" value="" placeholder="username">
+                  <input type="text" name="reviewer[industry]" value="" placeholder="industry">
+                  <input type="submit" name="submit" value="Create Profile">
+                </fieldset>
+              </form>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Change Password modal -->
+      <div id="chPassword" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Change Password content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Change Password</h4>
+            </div>
+            <div class="modal-body">
+              <form id="change-password">
+                <fieldset>
+                  <h3>Change Password</h3>
+                  <input type="password" name="passwords[old]" value="" placeholder="Old Password">
+                  <input type="password" name="passwords[new]" value="" placeholder="New Password">
+                  <input type="submit" name="submit" value="Change Password">
+                </fieldset>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <!-- Login modal -->
+      <div id="initiateLogin" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Login Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Login to Write Reviews! </h4>
+            </div>
+            <div class="modal-body">
+              <form id="login">
+                <fieldset>
+                  <input type="text" name="credentials[email]" value="" placeholder="email">
+                  <input type="password" name="credentials[password]" value="" placeholder="password">
+                  <input type="submit" name="submit" value="Login">
+                </fieldset>
+            </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Get started modal -->
+      <div id="getStartedModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Get started Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Create an Account to Start Reviewing Your Customers!
+              Login if you have an account.</h4>
+            </div>
+            <div class="modal-body">
+              <form id="create-account">
+                <fieldset>
+                  <input type="text" name="credentials[email]" value="" placeholder="email">
+                  <input type="password" name="credentials[password]" value="" placeholder="password">
+                  <input type="submit" name="submit" value="Create Account">
+                </fieldset>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Legal Modal -->
+      <div id="legalModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+          <!-- Legal Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Legal Statement</h4>
+            </div>
+            <div class="modal-body">
+              <p>Please don't sue me before this graded.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr id="line">
+      <!-- content on welcome page -->
+      <div class="welcome-page">
+        <h2 id="banner"> Angie's Other List </h2>
+        <h2 id="test"></h2>
+        <p id="description">Putting awful customers on blast since 2017</p>
+        <p id="describe" style="word-wrap: break-word; width: 280px">On Angie's Other List customer service providers get to review their customers!</p>
+        <img id="food-image" src="assets/styles/food_service.jpg" alt="image" style="width:300px;height:300px;">
+        <img id="retail-image" src="assets/styles/retail_meme.jpeg" alt="image" style="width:300px;height:300px;">
+      </div>
+
       <div class="update-profile">
         <form id="update-profile">
           <fieldset>
@@ -41,82 +189,37 @@
             <input type="submit" name="submit" value="Update Profile">
           </fieldset>
         </form>
-
       </div>
       <div class="create-review">
       <form id="create-review">
         <fieldset>
           <h3>Create Review</h3>
-          <input type="date" name="review[date]" value="" placeholder="">
-          <!-- <input type="text" name="reviews[text]" value="" placeholder="review text"> -->
-          <textarea rows="2" cols="25" name="review[text]" placeholder="Review Text"> </textarea>
+          <input type="date" name="review[review_date]" value="" placeholder="">
+          <textarea rows="2" cols="25" name="review[review_text]" placeholder="Review Text"> </textarea>
           <input type="submit" name="submit" value="Publish Review">
         </fieldset>
       </form>
-
       </div>
       <div class="update-review">
       <form id="update-review">
         <fieldset>
           <h3>Update Review</h3>
-          <!-- <input type="text" name="review[old]" value="" placeholder="Old Review"> -->
           <textarea rows="2" cols="25" name="review[old]" placeholder="Old Review"> </textarea>
-          <!-- <input type="text" name="review[new]" value="" placeholder="New Review"> -->
           <textarea rows="2" cols="25" name="review[new]" placeholder="New Review"> </textarea>
           <input type="submit" name="submit" value="Modify Review">
         </fieldset>
       </form>
 
       </div>
-    <div class="login">
-    <form id="login">
-      <fieldset>
-        <h3>Login</h3>
-        <input type="text" name="credentials[email]" value="" placeholder="email">
-        <input type="password" name="credentials[password]" value="" placeholder="password">
-        <input type="submit" name="submit" value="Login">
-      </fieldset>
-  </form>
-  </div>
-  <div class="change-password">
-    <form id="change-password">
-      <fieldset>
-        <h3>Change Password</h3>
-        <input type="password" name="passwords[old]" value="" placeholder="Old Password">
-        <input type="password" name="passwords[new]" value="" placeholder="New Password">
-        <input type="submit" name="submit" value="Change Password">
-      </fieldset>
-    </form>
 
-  </div>
-  <div class = 'logout'>
-  <form id='logout'>
-    <fieldset>
-      <h3>Logout</h3>
-      <!-- <input type="submit" name="submit" value="Logout"> -->
-      <input type="submit" class="btn btn-info" value="Logout">
-    </fieldset>
-  </form>
-</div>
-<div class = 'show-reviews'>
-<form id='show-reviews'>
-  <fieldset>
-    <h3>Read Reviews</h3>
-    <!-- <input type="submit" name="submit" value="Logout"> -->
-    <input type="submit" class="btn btn-info" value="Read Reviews">
-  </fieldset>
-</form>
-</div>
-<div class = 'delete-reviews'>
-<form id='delete-reviews'>
-  <fieldset>
-    <h3>Delete Review</h3>
-    <!-- <input type="submit" name="submit" value="Logout"> -->
-    <input type="submit" class="btn btn-info" value="Delete Review">
-  </fieldset>
-</form>
-</div>
-
+      <!-- delete reviews button -->
+      <div class = 'delete-review'>
+      <form id='delete-review'>
+        <fieldset>
+          <input type="submit" class="btn btn-info" value="Delete Review">
+        </fieldset>
+      </form>
+      </div>
 
     </body>
-</html>
+  </html>

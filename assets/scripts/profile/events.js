@@ -28,8 +28,6 @@ const onUpdateReviewer = function (event) {
 const clickHandlers = () => {
   $('#create-profile').on('submit', onCreateReviewer)
   $('#update-profile').on('submit', onUpdateReviewer)
-  // $('#logout').on('submit', onLogout)
-  // $('#change-password').on('submit', onChangePassword)
 }
 
 module.exports = {

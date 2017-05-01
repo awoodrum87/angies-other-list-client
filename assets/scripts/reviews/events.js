@@ -5,61 +5,65 @@ const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
 
-const onCreateAccount = function (event) {
-  const data = getFormFields(this)
-  console.log('data is ', data)
+const onCreateReview = function (event) {
   event.preventDefault()
   console.log('click is heard')
-  api.createAccount(data)
-    .then(ui.createAccountSuccess)
-    .catch(ui.createAccountFailure)
-}
-
-const onLogin = function (event) {
-  console.log('I can hear your login')
-  event.preventDefault()
-
   const data = getFormFields(this)
-  api.login(data)
-    .then(ui.loginSuccess)
-    .catch(ui.loginFailure)
+  console.log('create review data is ', data)
+  api.createReview(data)
+    .then(ui.createReviewSuccess)
+    .catch(ui.createReviewFailure)
 }
 
-const onLogout = function (event) {
-  console.log('logged out button works')
+const onDeleteReview = function (event) {
   event.preventDefault()
-
-  api.logout()
-    .then(ui.signOutSuccess)
-    .catch(ui.signOutFailure)
+  console.log('delete review is heard')
+  api.deleteReview()
+    .then(ui.deleteReviewSuccess)
+    .catch(ui.deleteReviewFailure)
 }
 
-const onChangePassword = function (event) {
+const onUpdateReview = function (event) {
   event.preventDefault()
-  console.log('change password button works')
-
-  const data = getFormFields(event.target)
-  api.changePassword(data)
-    .then(ui.changePasswordSuccess)
-    .catch(ui.changePasswordFailure)
+  console.log('update review is heard')
+  api.updateReview()
+    .then(ui.updateReviewSuccess)
+    .catch(ui.updateReviewFailure)
 }
 
-// const onCreateReviewer = function (event) {
-//   event.preventDefault()
-//   console.log('data is ', data)
-//   console.log('create reviewer click is heard')
-//   const data = getFormFields(this)
-//   api.createReviewer(data)
-//     .then(ui.createProfileSuccess)
-//     .catch(ui.createProfileFailure)
-// }
+const onGetReviews = function (event) {
+  event.preventDefault()
+  console.log('get reviews is heard')
+  api.getReviews()
+    .then(ui.getReviewsSuccess)
+    .catch(ui.getReviewsFailure)
+}
+
+const onInitiateLogin = function (event) {
+  event.preventDefault()
+  console.log('intiate-login click is heard')
+  // $('.welcome-page').hide()
+}
+
+const onGetStarted = function (event) {
+  event.preventDefault()
+  console.log('get started button clicks')
+  // $('.welcome-page').hide()
+}
+
+const onLegalDisclosure = function (event) {
+  event.preventDefault()
+  console.log('legal disclosure clicks')
+}
 
 const clickHandlers = () => {
-  $('#create-account').on('submit', onCreateAccount)
-  $('#login').on('submit', onLogin)
-  $('#logout').on('submit', onLogout)
-  $('#change-password').on('submit', onChangePassword)
-  // $('#create-profile').on('submit', onCreateReviewer)
+  $('#create-review').on('submit', onCreateReview)
+  $('#delete-review').on('submit', onDeleteReview)
+  $('#update-review').on('submit', onUpdateReview)
+  $('#show-reviews').on('click', onGetReviews)
+  $('#initiate-login').on('click', onInitiateLogin)
+  $('#get-started').on('click', onGetStarted)
+  $('#legal-statement').on('click', onLegalDisclosure)
 }
 
 module.exports = {

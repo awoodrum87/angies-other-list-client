@@ -2,59 +2,52 @@
 
 const store = require('../store.js')
 
-const createAccountSuccess = (data) => {
-  console.log('create account success. Data is ', data)
+const createReviewSuccess = (data) => {
+  console.log('create review success. Data is ', data)
+  store.review = data.review
+  console.log('store.review object is:', store.review)
 }
 
-const createAccountFailure = (error) => {
+const createReviewFailure = (error) => {
   console.error(error)
-  console.log('create account failure. Error is ', error)
+  console.log('create review failure. Error is ', error)
+  $('#cr-err-modal').modal('show')
 }
 
-const loginSuccess = (data) => {
-  store.user = data.user
-  console.log('login success. Data is ', data)
+const deleteReviewSuccess = (data) => {
+  store.review = null
+  console.log('store.review object is:', store.review)
 }
 
-const loginFailure = (error) => {
+const deleteReviewFailure = (error) => {
   console.error(error)
-  console.log('logout fail. Error is ', error)
+  console.log('delete fail. Error is ', error)
 }
 
-const logoutSuccess = (data) => {
-  store.user = null
-  console.log('sign out sucess')
+const updateReviewSuccess = (data) => {
+  console.log('update review success')
 }
-const logoutFailure = (error) => {
+const updateReviewFailure = (error) => {
+  console.error(error)
+  console.log('update review error')
+}
+
+const getReviewsSuccess = (data) => {
+  console.log('get reviews success')
+  console.log('get reviews data is', data)
+}
+
+const getReviewsFailure = (error) => {
   console.error(error)
 }
-
-const changePasswordSuccess = (data) => {
-  console.log('change password success')
-}
-
-const changePasswordFailure = (error) => {
-  console.error(error)
-}
-
-// const createProfileSuccess = (data) => {
-//   console.log('create profile success. Data is ', data)
-// }
-//
-// const createProfileFailure = (error) => {
-//   // console.error(error)
-//   console.log('create profile failure. Error is ', error)
-// }
 
 module.exports = {
-  createAccountSuccess,
-  createAccountFailure,
-  loginSuccess,
-  loginFailure,
-  logoutSuccess,
-  logoutFailure,
-  changePasswordSuccess,
-  changePasswordFailure
-  // createProfileSuccess,
-  // createProfileFailure
+  createReviewSuccess,
+  createReviewFailure,
+  deleteReviewSuccess,
+  deleteReviewFailure,
+  updateReviewSuccess,
+  updateReviewFailure,
+  getReviewsSuccess,
+  getReviewsFailure
 }

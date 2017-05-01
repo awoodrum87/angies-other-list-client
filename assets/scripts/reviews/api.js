@@ -3,24 +3,20 @@
 const config = require('../config')
 const store = require('../store')
 
-const createAccount = (data) => {
+const createReview = (data) => {
   return $.ajax({
-    url: config.apiOrigin + '/sign-up/',
+    url: config.apiOrigin + '/reviews/',
     method: 'POST',
-    data
-  })
-}
-const login = (data) => {
-  return $.ajax({
-    url: config.apiOrigin + '/sign-in/',
-    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
     data
   })
 }
 
-const logout = (data) => {
+const deleteReview = (data) => {
   return $.ajax({
-    url: config.apiOrigin + '/sign-out/' + store.user.id,
+    url: config.apiOrigin + '/reviews/' + store.review.id,
     method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -28,9 +24,10 @@ const logout = (data) => {
   })
 }
 
-const changePassword = (data) => {
+const updateReview = (data) => {
+  console.log('update review data is : ', data)
   return $.ajax({
-    url: config.apiOrigin + '/change-password/' + store.user.id,
+    url: config.apiOrigin + '/reviewers/' + store.review.id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -39,9 +36,16 @@ const changePassword = (data) => {
   })
 }
 
+const getReviews = () => {
+  return $.ajax({
+    url: config.apiOrigin + '/reviews/',
+    method: 'GET'
+  })
+}
+
 module.exports = {
-  createAccount,
-  login,
-  logout,
-  changePassword
+  getReviews,
+  updateReview,
+  deleteReview,
+  createReview
 }

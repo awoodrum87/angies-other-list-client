@@ -1,12 +1,99 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
-.col-xs-6 {
-  // background-color: blue;
-  border-style: solid;
-  border-color: black;
+.container-fluid{
+  background-color: #DCDCDC;
 }
 
-#site-options{
-  float: right;
+#line{
+  border-color: #000000;
+  margin-top: 100px;
+}
+
+#show-reviews{
+  float:right;
+  display:block;
+  margin-right:30px;
+  margin-top: 20px;
+  clear: left;
+}
+
+#logout{
+  float:left;
+  display:block;
+  margin-right:300px;
+  margin-top: 20px;
+  // clear:left;
+}
+
+#ch-password{
+  float:right;
+  display:block;
+  // margin-left:300px;
+  margin-top: 20px;
+  // clear:left;
+  margin-right:20px;
+}
+
+#cr-profile{
+  float:right;
+  display:block;
+  margin-right:20px;
+  margin-top: 20px;
+  // clear:left;
+}
+
+#get-started{
+  float:right;
+  display:block;
+  margin-right:600px;
+  margin-top: 20px;
+  clear:left;
+}
+
+#legal-statement{
+  float:right;
+  display:block;
+  margin-right:30px;
+  margin-top: 20px;
+  clear:left;
+}
+
+#initiate-login{
+  float:right;
+  display:block;
+  margin-right:30px;
+  margin-top: 20px;
+  clear:left;
+}
+
+#food-image{
+  margin-left: 210px;
+}
+
+#description{
+  margin-left: 620px;
+  font-family: arial;
+  font-size: 22px;
+  color: #E84F4F;
+}
+
+#describe{
+  margin-left: 665px;
+  font-family: arial;
+  font-size: 18px;
+  color: #E84F4F;
+  margin-top: 100px;
+}
+
+#retail-image{
+  margin-left: 630px;
+}
+
+#banner{
+  color: #E84F4F;
+  font-family: arial;
+  font-size: 50px;
+  margin-left: 630px;
+  margin-top:50px;
 }
