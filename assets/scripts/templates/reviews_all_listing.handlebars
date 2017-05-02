@@ -15,13 +15,13 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">Update This Review</h5>
+            <h5 class="modal-title">Update This Review</h5>
           </div>
           <div class="modal-body">
-            <form class="update-review" data-id="{{review.id}}">
+            <form id="update-review" data-id="{{review.id}}">
             <fieldset>
               <input type='text' name='review[new]' id ='updateDescription' placeholder="Updated Review Text">
-              <input data-id="{{review.id}}" type="submit" name="submit" id="up-rev-submit" value="Update This Review">
+              <input data-id="{{review.id}}" type="submit" name="submit" value="Update This Review">
           </fieldset>
           </form>
           </div>

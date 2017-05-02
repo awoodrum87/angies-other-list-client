@@ -65,7 +65,7 @@ const clickHandlers = () => {
   $('#legal-statement').on('click', onLegalDisclosure)
   // $('.content').on('click', '#up-rev-submit', onUpdateReview)
   // $('document').on('submit', '.delete-review', onDeleteReview)
-  $('document').on('submit', '.update-review', onUpdateReview)
+  $('.content').on('submit', '#update-review', onUpdateReview)
 }
 
 module.exports = {
