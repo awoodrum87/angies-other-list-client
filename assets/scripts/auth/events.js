@@ -30,8 +30,8 @@ const onLogout = function (event) {
   event.preventDefault()
 
   api.logout()
-    .then(ui.signOutSuccess)
-    .catch(ui.signOutFailure)
+    .then(ui.logoutSuccess)
+    .catch(ui.logoutFailure)
 }
 
 const onChangePassword = function (event) {

@@ -30,12 +30,12 @@ const loginSuccess = (data) => {
 
 const loginFailure = (error) => {
   console.error(error)
-  console.log('logout fail. Error is ', error)
+  console.log('login fail. Error is ', error)
 }
 
 const logoutSuccess = (data) => {
   store.user = null
-  console.log('sign out sucess')
+  console.log('logout out sucess')
   $('.welcome-page').show()
   $('#logout').hide()
   $('#ch-password').hide()
