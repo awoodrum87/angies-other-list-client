@@ -1,5 +1,12 @@
 {{#each reviews as |review|}}
+<ul>
+  <!-- <li> <h1 data-id="{{review.id}}"> </h1></li> -->
+  <li><small>Date: {{review.review_date}} </small></li>
+  <li> <small> Review: {{review.review_text}}</small></li>
+  <p> <input type="submit" class="btn btn-danger" value="Delete Review"> </p>
+  <p> <input type="submit" class="btn btn-danger" value="Update Review"> </p>
+</ul>
 
-<h1 data-id="{{review.id}}"> <small>Date: {{review.review_date}} Review: {{review.review_text}}</small></h1>
+
 
 {{/each}}

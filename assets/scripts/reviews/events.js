@@ -42,13 +42,11 @@ const onGetReviews = function (event) {
 const onInitiateLogin = function (event) {
   event.preventDefault()
   console.log('intiate-login click is heard')
-  // $('.welcome-page').hide()
 }
 
 const onGetStarted = function (event) {
   event.preventDefault()
   console.log('get started button clicks')
-  // $('.welcome-page').hide()
 }
 
 const onLegalDisclosure = function (event) {

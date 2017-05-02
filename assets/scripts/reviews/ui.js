@@ -36,7 +36,7 @@ const updateReviewFailure = (error) => {
 const getReviewsSuccess = (data) => {
   console.log('get reviews button works')
   console.log(data)
-  let showReviewsHTML = showAllReviews({reviews: data.reviews})
+  const showReviewsHTML = showAllReviews({reviews: data.reviews})
   $('.content').append(showReviewsHTML)
 }
 

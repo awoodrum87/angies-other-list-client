@@ -21,6 +21,7 @@
         <input type="submit" class="btn btn-danger btn-lg" id="logout" value="Logout">
         <input type="submit" class="btn btn-danger btn-lg" id="ch-password" data-toggle="modal" data-target="#chPassword"value="Change Password">
         <input type="submit" class="btn btn-danger btn-lg" id="cr-profile" data-toggle="modal" data-target="#crProfile"value="Create Profile">
+        <input type="submit" class="btn btn-danger btn-lg" id="up-profile" data-toggle="modal" data-target="#upProfile"value="Update Profile">
       </div>
       <p class='cr-err-message'></p>
 
@@ -44,6 +45,32 @@
           </div>
         </div>
       </div>
+      <!-- Update Profile modal -->
+      <div id="upProfile" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Update Profile content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Update Profile</h4>
+            </div>
+            <div class="modal-body">
+              <form id="update-profile">
+                <fieldset>
+                  <h3>Update Profile</h3>
+                  <input type="text" name="reviewer[industry]" value="" placeholder="New Industry">
+                  <input type="submit" name="submit" value="Update Profile">
+                </fieldset>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- Create Profile modal -->
       <div id="crProfile" class="modal fade" role="dialog">
         <div class="modal-dialog">
@@ -180,16 +207,15 @@
         <img id="retail-image" src="assets/styles/retail_meme.jpeg" alt="image" style="width:300px;height:300px;">
       </div>
 
-      <div class="update-profile">
+      <!-- <div class="update-profile">
         <form id="update-profile">
           <fieldset>
             <h3>Update Profile</h3>
             <input type="text" name="reviewer[industry]" value="" placeholder="New Industry">
-            <!-- <input type="text" name="reviewer[new]" value="" placeholder="New Industry"> -->
             <input type="submit" name="submit" value="Update Profile">
           </fieldset>
         </form>
-      </div>
+      </div> -->
       <div class="create-review">
       <form id="create-review">
         <fieldset>
@@ -211,6 +237,7 @@
       </form>
 
       </div>
+      <!-- empty div for handlebars -->
       <div id='content' class='content'>
       </div>
       <!-- delete reviews button -->

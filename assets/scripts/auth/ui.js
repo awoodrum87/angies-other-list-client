@@ -26,6 +26,7 @@ const loginSuccess = (data) => {
   $('#create-review').show()
   $('#update-review').show()
   $('#show-reviews').show()
+  $('#up-profile').show()
 }
 
 const loginFailure = (error) => {

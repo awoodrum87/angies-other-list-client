@@ -27,7 +27,7 @@ const deleteReview = (data) => {
 const updateReview = (data) => {
   console.log('update review data is : ', data)
   return $.ajax({
-    url: config.apiOrigin + '/reviewers/' + store.review.id,
+    url: config.apiOrigin + '/reviews/' + store.review.id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -39,7 +39,10 @@ const updateReview = (data) => {
 const getReviews = () => {
   return $.ajax({
     url: config.apiOrigin + '/reviews/',
-    method: 'GET'
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
   })
 }
 
