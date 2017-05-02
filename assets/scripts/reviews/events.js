@@ -56,12 +56,16 @@ const onLegalDisclosure = function (event) {
 
 const clickHandlers = () => {
   $('#create-review').on('submit', onCreateReview)
-  $('#delete-review').on('submit', onDeleteReview)
-  $('#update-review').on('submit', onUpdateReview)
+  // $('#delete-review').on('submit', onDeleteReview)
+  $('#ind-up-review').on('submit', onUpdateReview)
+  // $('#update-review').on('submit', onUpdateReview)
   $('#show-reviews').on('click', onGetReviews)
   $('#initiate-login').on('click', onInitiateLogin)
   $('#get-started').on('click', onGetStarted)
   $('#legal-statement').on('click', onLegalDisclosure)
+  // $('.content').on('click', '#up-rev-submit', onUpdateReview)
+  // $('document').on('submit', '.delete-review', onDeleteReview)
+  $('document').on('submit', '.update-review', onUpdateReview)
 }
 
 module.exports = {

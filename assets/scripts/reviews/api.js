@@ -36,9 +36,19 @@ const updateReview = (data) => {
   })
 }
 
+// const getReviews = () => {
+//   return $.ajax({
+//     url: config.apiOrigin + '/reviews/',
+//     method: 'GET',
+//     headers: {
+//       Authorization: 'Token token=' + store.user.token
+//     }
+//   })
+// }
+
 const getReviews = () => {
   return $.ajax({
-    url: config.apiOrigin + '/reviews/',
+    url: config.apiOrigin + '/your-reviews',
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -51,4 +61,5 @@ module.exports = {
   updateReview,
   deleteReview,
   createReview
+  // getSomeReviews
 }
