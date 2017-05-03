@@ -7,7 +7,8 @@ const createProfileSuccess = (data) => {
 }
 
 const createProfileFailure = (error) => {
-  console.log('create profile failure. Error is ', error)
+  console.error(error)
+  $('#cr-pr-err-modal').modal('show')
 }
 
 const updateProfileSuccess = (data) => {

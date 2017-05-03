@@ -1,14 +1,14 @@
 {{#each reviews as |review|}}
 <div id='review-actions'>
 <ul>
-  <!-- <li> <h1 data-id="{{review.id}}"> </h1></li> -->
-  <li><small>Date: {{review.review_date}} </small></li>
-  <li> <small> Review: {{review.review_text}}</small></li>
+
+  <li class="my-review-li">Review ID: {{review.id}}</li>
+  <li class="my-review-li">Date: {{review.review_date}} </li>
+  <li class="my-review-li">Review: {{review.review_text}}</li>
   <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#update{{review.id}}">Update Review</button>
   <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete{{review.id}}">Delete Review</button>
 </ul>
 </div>
-
 
 <!-- update review modal -->
 <div class="modal fade" id="update{{review.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
@@ -20,14 +20,14 @@
           <div class="modal-body">
             <form id="update-review" data-id="{{review.id}}">
             <fieldset>
-              <input type='text' name='review[new]' id ='updateDescription' placeholder="Updated Review Text">
+              <input type='text' name='review[review_text]' id ='updateDescription' placeholder="Updated Review Text">
               <input data-id="{{review.id}}" type="submit" name="submit" value="Update This Review">
           </fieldset>
           </form>
           </div>
           <div class="modal-footer">
             <div class="updateerror"></div>
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </div>
         </div>
       </div>
@@ -38,10 +38,10 @@
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Delete this revieww</h5>
+                <h5 class="modal-title" id="exampleModalLongTitle">Are you sure???</h5>
               </div>
               <div class="modal-body">
-                <form class="update-review" data-id="{{review.id}}">
+                <form id='delete-review-form'class="update-review" data-id="{{review.id}}">
                 <fieldset>
                   <input data-id="{{review.id}}" type="submit" name="submit" id="delete-rev-submit" value="Delete This Review">
               </fieldset>
@@ -49,7 +49,7 @@
               </div>
               <div class="modal-footer">
                 <div class="updateerror"></div>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
               </div>
             </div>
           </div>

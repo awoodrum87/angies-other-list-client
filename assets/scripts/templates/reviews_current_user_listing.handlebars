@@ -1,0 +1,7 @@
+
+{{#each reviews as |review|}}
+   <ul data-id="{{review.id}}">
+     <li> Date: {{review.review_date}}</li>
+     <li> Review: {{review.review_text}}</li>
+   </ul>
+{{/each}}

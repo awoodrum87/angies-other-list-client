@@ -10,7 +10,15 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   margin-top: 100px;
 }
 
-#show-reviews{
+#show-my-reviews{
+  float:right;
+  display:block;
+  margin-right:30px;
+  margin-top: 20px;
+  clear: left;
+}
+
+#show-all-reviews{
   float:right;
   display:block;
   margin-right:30px;
@@ -104,4 +112,38 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   font-size: 50px;
   margin-left: 630px;
   margin-top:50px;
+}
+
+.create-review{
+  border-style: solid;
+  border-radius: 25px;
+  border-color: #E84F4F;
+  width: 500px;
+  height: 300px;
+  padding: 50px;
+  display: block;
+  text-align: center;
+  margin-left: 600px;
+}
+
+#form-line{
+  border-color: #000000;
+}
+
+#txtDate{
+  width: 150px;
+  height: 43px;
+}
+
+#pub-rev{
+  margin-top: 5px;
+}
+
+#text-box{
+  float: right;
+}
+
+#swanson{
+  margin-left: 600px;
+
 }
