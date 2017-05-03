@@ -17,8 +17,9 @@ const onCreateReview = function (event) {
 
 const onDeleteReview = function (event) {
   event.preventDefault()
+  const id = $(this).attr('data-id')
   console.log('delete review is heard')
-  api.deleteReview()
+  api.deleteReview(id)
     .then(ui.deleteReviewSuccess)
     .catch(ui.deleteReviewFailure)
 }
@@ -26,7 +27,9 @@ const onDeleteReview = function (event) {
 const onUpdateReview = function (event) {
   event.preventDefault()
   console.log('update review is heard')
-  api.updateReview()
+  const data = getFormFields(this)
+  const id = $(this).attr('data-id')
+  api.updateReview(id, data)
     .then(ui.updateReviewSuccess)
     .catch(ui.updateReviewFailure)
 }
@@ -36,6 +39,14 @@ const onGetReviews = function (event) {
   console.log('get reviews is heard')
   api.getReviews()
     .then(ui.getReviewsSuccess)
+    .catch(ui.getReviewsFailure)
+}
+
+const onGetMyReviews = function (event) {
+  event.preventDefault()
+  console.log('get reviews is heard')
+  api.getReviews()
+    .then(ui.getMyReviewsSuccess)
     .catch(ui.getReviewsFailure)
 }
 
@@ -56,16 +67,14 @@ const onLegalDisclosure = function (event) {
 
 const clickHandlers = () => {
   $('#create-review').on('submit', onCreateReview)
-  // $('#delete-review').on('submit', onDeleteReview)
   $('#ind-up-review').on('submit', onUpdateReview)
-  // $('#update-review').on('submit', onUpdateReview)
-  $('#show-reviews').on('click', onGetReviews)
+  $('#show-all-reviews').on('click', onGetMyReviews)
+  $('#show-my-reviews').on('click', onGetReviews)
   $('#initiate-login').on('click', onInitiateLogin)
   $('#get-started').on('click', onGetStarted)
   $('#legal-statement').on('click', onLegalDisclosure)
-  // $('.content').on('click', '#up-rev-submit', onUpdateReview)
-  // $('document').on('submit', '.delete-review', onDeleteReview)
   $('.content').on('submit', '#update-review', onUpdateReview)
+  $('.content').on('submit', '#delete-review-form', onDeleteReview)
 }
 
 module.exports = {

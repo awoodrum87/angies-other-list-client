@@ -14,20 +14,19 @@ const createReview = (data) => {
   })
 }
 
-const deleteReview = (data) => {
+const deleteReview = (id) => {
   return $.ajax({
-    url: config.apiOrigin + '/reviews/' + store.review.id,
+    url: config.apiOrigin + '/reviews/' + id,
     method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + store.user.token
     }
   })
 }
-
-const updateReview = (data) => {
-  console.log('update review data is : ', data)
+const updateReview = (id, data) => {
+  console.log('update review data is : ', id)
   return $.ajax({
-    url: config.apiOrigin + '/reviews/' + store.review.id,
+    url: config.apiOrigin + '/reviews/' + id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -36,15 +35,15 @@ const updateReview = (data) => {
   })
 }
 
-// const getReviews = () => {
-//   return $.ajax({
-//     url: config.apiOrigin + '/reviews/',
-//     method: 'GET',
-//     headers: {
-//       Authorization: 'Token token=' + store.user.token
-//     }
-//   })
-// }
+const getMyReviews = () => {
+  return $.ajax({
+    url: config.apiOrigin + '/reviews/',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
 
 const getReviews = () => {
   return $.ajax({
@@ -60,6 +59,6 @@ module.exports = {
   getReviews,
   updateReview,
   deleteReview,
-  createReview
-  // getSomeReviews
+  createReview,
+  getMyReviews
 }
