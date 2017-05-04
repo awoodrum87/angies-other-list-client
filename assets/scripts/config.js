@@ -2,7 +2,8 @@
 
 const config = {
   apiOrigins: {
-    production: 'https://safe-sierra-66224.herokuapp.com'
+    production: 'https://angies-other-list.herokuapp.com/'
+
   }
 }
 module.exports = config
