@@ -10,7 +10,20 @@ const createReviewSuccess = (data) => {
 
 const createReviewFailure = (error) => {
   console.error(error)
-  $('#cr-err-modal').modal('show')
+  // try to handle a specific error
+  if (
+  $.ajax({
+    url: 'http://localhost:7165/',
+    statusCode: {
+      404: function () {
+        // alert('page not found')
+      }
+    }
+  })) {
+    alert('Please enter a date and ')
+  } else {
+    $('#cr-err-modal').modal('show')
+  }
 }
 
 const deleteReviewSuccess = (data) => {
