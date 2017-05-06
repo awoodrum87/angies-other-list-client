@@ -28,7 +28,6 @@ $(() => {
   $('#create-review').hide()
   $('#update-review').hide()
   $('#up-profile').hide()
-  $('#retail-image').hide()
   authEvents.clickHandlers()
   profileEvents.clickHandlers()
   reviewEvents.clickHandlers()
