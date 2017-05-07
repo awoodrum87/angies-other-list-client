@@ -14,17 +14,75 @@
     <body class="container-fluid">
       <!-- Nav Bar with Buttons -->
       <div class="button-div">
-        <input type="submit" class="btn btn-danger btn-lg" id="show-my-reviews"value="Read My Reviews">
-        <input type="submit" class="btn btn-danger btn-lg" id="show-all-reviews"value="Read All Reviews">
+        <!-- <input type="submit" class="visible btn btn-danger btn-lg" id="show-my-reviews"value="Read/Update My Reviews">
+        <input type="submit" class="visible btn btn-danger btn-lg" id="show-all-reviews"value="Read All Reviews">
         <input type="submit" class="btn btn-danger btn-lg" id="get-started" data-toggle="modal" data-target="#getStartedModal" value="Get Started">
         <input type="submit" class="btn btn-danger btn-lg" id="legal-statement" data-toggle="modal" data-target="#legalModal" value="Legal Statement">
         <input type="submit" class="btn btn-danger btn-lg" id="initiate-login" data-toggle="modal" data-target="#initiateLogin"value="Login">
-        <input type="submit" class="btn btn-danger btn-lg" id="logout" value="Logout">
-        <input type="submit" class="btn btn-danger btn-lg" id="ch-password" data-toggle="modal" data-target="#chPassword"value="Change Password">
-        <input type="submit" class="btn btn-danger btn-lg" id="cr-profile" data-toggle="modal" data-target="#crProfile"value="Create Profile">
-        <input type="submit" class="btn btn-danger btn-lg" id="up-profile" data-toggle="modal" data-target="#upProfile"value="Update Profile">
+        <input type="submit" class="visible btn btn-danger btn-lg" id="logout" value="Logout">
+        <input type="submit" class="visible btn btn-danger btn-lg" id="ch-password" data-toggle="modal" data-target="#chPassword"value="Change Password">
+        <input type="submit" class="visible btn btn-danger btn-lg" id="cr-profile" data-toggle="modal" data-target="#crProfile"value="Create Profile">
+        <input type="submit" class="visible btn btn-danger btn-lg" id="up-profile" data-toggle="modal" data-target="#upProfile"value="Update Profile"> -->
       </div>
       <p class='cr-err-message'></p>
+<!-- NAVIGATION BAR -->
+      <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"  data-toggle="modal" data-target="#describe">Angie's Other List</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="#" data-toggle="modal" data-target="#legalModal">Legal Statement <span class="sr-only">(current)</span></a></li>
+      </ul>
+      <ul class="accountActions nav navbar-nav">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Write Reviews <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#" data-toggle="modal" data-target="#getStartedModal">Create an Account</a></li>
+          <li role="separator" class="divider"></li>
+          <li><a href="#" data-toggle="modal" data-target="#initiateLogin">Login to your Account</a></li>
+        </ul>
+      </li>
+    </ul>
+        <ul class="profileActions nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Your Profile <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#" data-toggle="modal" data-target="#crProfile">Create a Profile</a></li>
+            <li><a href="#" data-toggle="modal" data-target="#upProfile">Update Your profile</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#" data-toggle="modal" data-target="#chPassword">Change Password</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#" id= "logout">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="reviewActions nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Review Actions<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <!-- <li><a href="#" data-toggle="modal" data-target="#upProfile">Create Review</a></li> -->
+            <li><a href="#" id="show-my-reviews">View or Edit Your Reviews</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#" id="show-all-reviews">See All Reviews</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<!-- END OF NAV BAR -->
 
       <!-- Update Profile modal -->
       <div id="upProfile" class="modal fade" role="dialog">
@@ -124,6 +182,7 @@
                   <input type="text" name="credentials[email]" value="" placeholder="email">
                   <input type="password" name="credentials[password]" value="" placeholder="password">
                   <input type="submit" name="submit" value="Login">
+
                 </fieldset>
             </form>
             </div>
@@ -177,14 +236,36 @@
           </div>
         </div>
       </div>
-      <hr id="line">
+
+      <!-- About Modal -->
+      <div id="describe" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+          <!-- About Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">About Angie's Other List</h4>
+            </div>
+            <div class="modal-body">
+              <p>On Angie's Other List customer service providers get to review their customers! In 2005 while working
+              part time at a local restaurant Angie, still an angsty and mouthy teenager, had many discussions with her manager about being polite
+              to customers even when they're mean. Angie survived this, and a few more years of customer service work, by knowing one day she would
+              get her chance for revenge! Do you serve a bad tipper that needs to be called out? Know someone that straight up lies about their service
+              get free food? Join Angie's Other List to put them on blast!</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- content on welcome page -->
       <div class="welcome-page">
         <h2 id="banner"> Angie's Other List </h2>
         <h2 id="test"></h2>
         <p id="description">Putting awful customers on blast since 2017</p>
-        <p id="describe" style="word-wrap: break-word; width: 280px">On Angie's Other List customer service providers get to review their customers!</p>
-        <img src="https://media.giphy.com/media/XrBiWQU23trHy/giphy.gif" alt="Customer Service" id='swanson' style="width:400px;height:300px;">
+        <img src="https://media.giphy.com/media/XrBiWQU23trHy/giphy.gif" alt="Customer Service" id='swanson' style="width:500px;height:400px;">
       </div>
       <!-- create review form -->
       <div class="create-review">
@@ -318,6 +399,26 @@
             </div>
             <div class="modal-body">
               <p>You messed that up. Try creating a profile again.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">OK!</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Blank review fields Error Modal -->
+      <div id="bl-flds-modal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Blank review fields Error Modal-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Error!</h4>
+            </div>
+            <div class="modal-body">
+              <p>You must enter a date and review text.</p>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal">OK!</button>

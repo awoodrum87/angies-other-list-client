@@ -1,14 +1,20 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
-.container-fluid{
-  background-color: #DCDCDC;
+// .container-fluid{
+//   background-color: #DCDCDC;
+// }
+
+.collapse{
+  background-color: #80061E;
+  font-size: 20px
 }
 
-#line{
-  border-color: #000000;
-  margin-top: 100px;
+.navbar-brand{
+  font-size: 22px;
+  color: #E84F4F;
 }
+
 
 #show-my-reviews{
   float:right;
@@ -91,15 +97,15 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   margin-left: 620px;
   font-family: arial;
   font-size: 22px;
-  color: #E84F4F;
+  color: #80061E;
 }
 
 #describe{
-  margin-left: 665px;
-  font-family: arial;
+  // margin-left: 665px;
+  // font-family: arial;
   font-size: 18px;
-  color: #E84F4F;
-  margin-top: 100px;
+  color: #80061E;
+  // margin-top: 100px;
 }
 
 #retail-image{
@@ -107,7 +113,7 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 }
 
 #banner{
-  color: #E84F4F;
+  color: #80061E;
   font-family: arial;
   font-size: 50px;
   margin-left: 630px;
@@ -117,7 +123,7 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 .create-review{
   border-style: solid;
   border-radius: 25px;
-  border-color: #E84F4F;
+  border-color: #80061E;
   width: 500px;
   height: 300px;
   padding: 50px;
