@@ -17,6 +17,9 @@ const loginSuccess = (data) => {
   store.user = data.user
   $('#initiateLogin').modal('toggle')
   visible.loginView()
+  console.log('data is', store.user)
+  console.log('data.reviewer is', store.user.reviewer)
+  visible.crReviewHide()
 }
 
 const loginFailure = (error) => {
@@ -26,7 +29,6 @@ const loginFailure = (error) => {
 
 const logoutSuccess = (data) => {
   store.user = null
-  console.log('logout out sucess')
   visible.logoutView()
 }
 

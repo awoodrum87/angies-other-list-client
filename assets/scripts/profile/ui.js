@@ -1,14 +1,17 @@
 'use strict'
 
-// const store = require('../store.js')
-
 const createProfileSuccess = (data) => {
   $('#crProfile').modal('toggle')
 }
 
 const createProfileFailure = (error) => {
   console.error(error)
+  // const errorCode = error.status
+  // if (errorCode === 500) {
+  //   $('#cr-pro-fail').modal('show')
+  // } else if (errorCode === 422) {
   $('#bl-flds-modal').modal('show')
+  // }
 }
 
 const updateProfileSuccess = (data) => {

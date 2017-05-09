@@ -1,6 +1,14 @@
 'use strict'
-
+const store = require('./store')
 // when a user logs out, hide elements of the page
+
+const crReviewHide = function () {
+  if (store.user.reviewer === null) {
+    $('#cr-profile-handle').show()
+  } else {
+    $('#cr-profile-handle').hide()
+  }
+}
 const logoutView = function () {
   $('.reviewActions').hide()
   $('.profileActions').hide()
@@ -20,5 +28,6 @@ const loginView = function () {
 }
 module.exports = {
   logoutView,
-  loginView
+  loginView,
+  crReviewHide
 }
