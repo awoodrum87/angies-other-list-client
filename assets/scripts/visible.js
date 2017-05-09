@@ -5,6 +5,7 @@ const logoutView = function () {
   $('.reviewActions').hide()
   $('.profileActions').hide()
   $('.create-review').hide()
+  $('.content').hide()
   $('.accountActions').show()
   $('.welcome-page').show()
 }

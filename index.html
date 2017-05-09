@@ -12,18 +12,7 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="container-fluid">
-      <!-- Nav Bar with Buttons -->
-      <div class="button-div">
-        <!-- <input type="submit" class="visible btn btn-danger btn-lg" id="show-my-reviews"value="Read/Update My Reviews">
-        <input type="submit" class="visible btn btn-danger btn-lg" id="show-all-reviews"value="Read All Reviews">
-        <input type="submit" class="btn btn-danger btn-lg" id="get-started" data-toggle="modal" data-target="#getStartedModal" value="Get Started">
-        <input type="submit" class="btn btn-danger btn-lg" id="legal-statement" data-toggle="modal" data-target="#legalModal" value="Legal Statement">
-        <input type="submit" class="btn btn-danger btn-lg" id="initiate-login" data-toggle="modal" data-target="#initiateLogin"value="Login">
-        <input type="submit" class="visible btn btn-danger btn-lg" id="logout" value="Logout">
-        <input type="submit" class="visible btn btn-danger btn-lg" id="ch-password" data-toggle="modal" data-target="#chPassword"value="Change Password">
-        <input type="submit" class="visible btn btn-danger btn-lg" id="cr-profile" data-toggle="modal" data-target="#crProfile"value="Create Profile">
-        <input type="submit" class="visible btn btn-danger btn-lg" id="up-profile" data-toggle="modal" data-target="#upProfile"value="Update Profile"> -->
-      </div>
+
       <p class='cr-err-message'></p>
 <!-- NAVIGATION BAR -->
       <nav class="navbar navbar-default">
@@ -58,7 +47,7 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Your Profile <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#" data-toggle="modal" data-target="#crProfile">Create a Profile</a></li>
+            <li><a href="#" id='cr-profile-handle' data-toggle="modal" data-target="#crProfile">Create a Profile</a></li>
             <li><a href="#" data-toggle="modal" data-target="#upProfile">Update Your profile</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="#" data-toggle="modal" data-target="#chPassword">Change Password</a></li>
@@ -418,7 +407,98 @@
               <h4 class="modal-title">Error!</h4>
             </div>
             <div class="modal-body">
-              <p>You must enter a date and review text.</p>
+              <p>No blank fields allowed.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">OK!</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="gen-success-modal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Create Profile Error Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Success!</h4>
+            </div>
+            <div class="modal-body">
+              <p>Nicely done</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">OK!</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="del-rev-success" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Create Profile Error Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Deleted</h4>
+            </div>
+            <div class="modal-body">
+              <p>This review has been deleted.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">OK!</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="gen-error-modal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Create Profile Error Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Error</h4>
+            </div>
+            <div class="modal-body">
+              <p>Yikes! Something went wrong. Try that again.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">OK!</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="up-rev-success-modal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Create Profile Error Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Success</h4>
+            </div>
+            <div class="modal-body">
+              <p>You've successfully updated your review!</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">OK!</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="up-pro-fail" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Create Profile Error Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Doh!</h4>
+            </div>
+            <div class="modal-body">
+              <p>You can't update a profile you don't have! Create a profile.</p>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal">OK!</button>

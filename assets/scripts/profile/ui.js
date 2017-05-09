@@ -3,20 +3,27 @@
 // const store = require('../store.js')
 
 const createProfileSuccess = (data) => {
-  console.log('create profile success. Data is ', data)
+  $('#crProfile').modal('toggle')
 }
 
 const createProfileFailure = (error) => {
   console.error(error)
-  $('#cr-pr-err-modal').modal('show')
+  $('#bl-flds-modal').modal('show')
 }
 
 const updateProfileSuccess = (data) => {
-  console.log('update profile success')
+  $('#upProfile').modal('toggle')
+  $('#gen-success-modal').modal('show')
 }
 
 const updateProfileFailure = (error) => {
   console.error(error)
+  const errorCode = error.status
+  if (errorCode === 500) {
+    $('#up-pro-fail').modal('show')
+  } else if (errorCode === 422) {
+    $('#bl-flds-modal').modal('show')
+  }
 }
 
 module.exports = {

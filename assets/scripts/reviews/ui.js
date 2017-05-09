@@ -6,36 +6,37 @@ const showMyReviews = require('../templates/reviews_current_user_listing.handleb
 
 const createReviewSuccess = (data) => {
   store.review = data.review
+  $('#create-review').trigger('reset')
+  $('#gen-success-modal').modal('show')
 }
 
 const createReviewFailure = (error) => {
+  console.log('status code is', error.status) // returns undefined
   console.error(error)
-  if (
-  $.ajax({
-    url: 'http://localhost:7165/',
-    statusCode: {
-      404: function () {
-      }
-    }
-  })
-  ) {
-    $('#bl-flds-modal').modal('show')
-  } else {
+  const errorCode = error.status
+  if (errorCode === 500) {
     $('#cr-err-modal').modal('show')
+  } else if (errorCode === 422) {
+    $('#bl-flds-modal').modal('show')
   }
 }
 
 const deleteReviewSuccess = (data) => {
   store.review = null
+  $('#del-rev-success').modal('show')
+  $('.delModal').modal('toggle')
 }
 
 const deleteReviewFailure = (error) => {
   console.error(error)
+  $('#gen-error-modal').modal('show')
 }
 
 const updateReviewSuccess = (data) => {
-
+  $('.upModal').modal('toggle')
+  $('#up-rev-success-modal').modal('show')
 }
+
 const updateReviewFailure = (error) => {
   console.error(error)
   $('#up-rev-err-modal').modal('show')
@@ -53,6 +54,7 @@ const getMyReviewsSuccess = (data) => {
 
 const getReviewsFailure = (error) => {
   console.error(error)
+  $('#gen-error-modal').modal('show')
 }
 
 module.exports = {

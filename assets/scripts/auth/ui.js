@@ -4,7 +4,8 @@ const store = require('../store.js')
 const visible = require('../visible.js')
 
 const createAccountSuccess = (data) => {
-
+  $('#getStartedModal').modal('toggle')
+  $('#gen-success-modal').modal('show')
 }
 
 const createAccountFailure = (error) => {
@@ -34,6 +35,7 @@ const logoutFailure = (error) => {
 }
 
 const changePasswordSuccess = (data) => {
+  $('#gen-success-modal').modal('show')
 }
 
 const changePasswordFailure = (error) => {
