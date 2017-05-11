@@ -37,7 +37,7 @@ const updateReviewSuccess = (data) => {
   // $('.content').hide()
   $('.upModal').modal('toggle')
   $('#up-rev-success-modal').modal('show')
-  $('#ind-up-review').trigger('reset')
+  // $('#ind-up-review').trigger('reset')
 }
 
 const updateReviewFailure = (error) => {
