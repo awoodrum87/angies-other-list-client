@@ -10,10 +10,10 @@ Link to site: https://awoodrum87.github.io/angies-other-list-client/index.html
 
 # User Stories
 1. As a user I want to be able to perform authentication actions
-  1.1 Create Account
-  1.2 Login
-  1.3 Change Password
-  1.4 Logout
+#  1.1 Create Account
+#  1.2 Login
+#  1.3 Change Password
+#  1.4 Logout
 2. As a user I want to be able to create a reviewer profile
 3. As a user I want to be able to update my reviewer profile
 4. As a reviewer I want to be able to create reviews
