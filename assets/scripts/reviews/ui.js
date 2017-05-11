@@ -24,8 +24,8 @@ const createReviewFailure = (error) => {
 
 const deleteReviewSuccess = (data) => {
   store.review = null
-  $('#del-rev-success').modal('show')
   $('.delModal').modal('toggle')
+  $('#del-rev-success').modal('show')
 }
 
 const deleteReviewFailure = (error) => {
@@ -34,10 +34,8 @@ const deleteReviewFailure = (error) => {
 }
 
 const updateReviewSuccess = (data) => {
-  // $('.content').hide()
   $('.upModal').modal('toggle')
   $('#up-rev-success-modal').modal('show')
-  // $('#ind-up-review').trigger('reset')
 }
 
 const updateReviewFailure = (error) => {
