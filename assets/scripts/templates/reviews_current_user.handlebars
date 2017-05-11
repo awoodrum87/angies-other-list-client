@@ -1,0 +1,57 @@
+{{#each reviews as |review|}}
+<div id='review-actions'>
+<ul>
+
+  <p class="my-review-li">Review ID: {{review.id}}</p>
+  <p class="my-review-li">Date: {{review.review_date}} </p>
+  <p class="my-review-li">Review: {{review.review_text}}</p>
+  <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#update{{review.id}}">Update Review</button>
+  <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete{{review.id}}">Delete Review</button>
+</ul>
+</div>
+
+<!-- update review modal -->
+<div class="upModal modal fade" id="update{{review.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Update This Review</h5>
+          </div>
+          <div class="modal-body">
+            <form id="update-review" data-id="{{review.id}}">
+            <fieldset>
+              <input type='text' name='review[review_text]' id ='updateDescription' placeholder="Updated Review Text">
+              <input data-id="{{review.id}}" type="submit" name="submit" value="Update This Review">
+          </fieldset>
+          </form>
+          </div>
+          <div class="modal-footer">
+            <div class="updateerror"></div>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- update review modal -->
+    <div class="delModal modal fade" id="delete{{review.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Are you sure???</h5>
+              </div>
+              <div class="modal-body">
+                <form id='delete-review-form'class="update-review" data-id="{{review.id}}">
+                <fieldset>
+                  <input data-id="{{review.id}}" type="submit" name="submit" id="delete-rev-submit" value="Delete This Review">
+              </fieldset>
+              </form>
+              </div>
+              <div class="modal-footer">
+                <div class="updateerror"></div>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+{{/each}}

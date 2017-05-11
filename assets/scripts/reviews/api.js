@@ -35,7 +35,7 @@ const updateReview = (id, data) => {
   })
 }
 
-const getMyReviews = () => {
+const getReviews = () => {
   return $.ajax({
     url: config.apiOrigin + '/reviews/',
     method: 'GET',
@@ -45,7 +45,7 @@ const getMyReviews = () => {
   })
 }
 
-const getReviews = () => {
+const getMyReviews = () => {
   return $.ajax({
     url: config.apiOrigin + '/your-reviews',
     method: 'GET',

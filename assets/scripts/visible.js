@@ -1,5 +1,8 @@
 'use strict'
 const store = require('./store')
+// const showMyReviews = require('./templates/reviews_current_user.handlebars')
+// const ui = require('../reviews/ui.js')
+
 // when a user logs out, hide elements of the page
 
 const crReviewHide = function () {
@@ -25,6 +28,12 @@ const loginView = function () {
   $('.reviewActions').show()
   $('.profileActions').show()
   $('.create-review').show()
+}
+
+const dynamUpHandlebars = function (data) {
+  // // store.store.reviews = data.reviews
+  // const showMyReviewsHTML = showMyReviews({reviews: data.reviews})
+  // $('.content').html(showMyReviewsHTML)
 }
 module.exports = {
   logoutView,

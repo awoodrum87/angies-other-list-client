@@ -43,7 +43,7 @@ const onGetReviews = function (event) {
 
 const onGetMyReviews = function (event) {
   event.preventDefault()
-  api.getReviews()
+  api.getMyReviews()
     .then(ui.getMyReviewsSuccess)
     .catch(ui.getReviewsFailure)
 }
@@ -66,8 +66,8 @@ const onLegalDisclosure = function (event) {
 const clickHandlers = () => {
   $('#create-review').on('submit', onCreateReview)
   $('#ind-up-review').on('submit', onUpdateReview)
-  $('#show-all-reviews').on('click', onGetMyReviews)
-  $('#show-my-reviews').on('click', onGetReviews)
+  $('#show-my-reviews').on('click', onGetMyReviews)
+  $('#show-all-reviews').on('click', onGetReviews)
   $('#initiate-login').on('click', onInitiateLogin)
   $('#get-started').on('click', onGetStarted)
   $('#legal-statement').on('click', onLegalDisclosure)

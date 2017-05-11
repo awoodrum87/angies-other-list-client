@@ -17,8 +17,6 @@ const loginSuccess = (data) => {
   store.user = data.user
   $('#initiateLogin').modal('toggle')
   visible.loginView()
-  console.log('data is', store.user)
-  console.log('data.reviewer is', store.user.reviewer)
   visible.crReviewHide()
 }
 
@@ -37,6 +35,7 @@ const logoutFailure = (error) => {
 }
 
 const changePasswordSuccess = (data) => {
+  $('#chPassword').modal('toggle')
   $('#gen-success-modal').modal('show')
 }
 
