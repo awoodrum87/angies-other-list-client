@@ -1,8 +1,8 @@
 'use strict'
 
 const store = require('../store.js')
-const showAllReviews = require('../templates/reviews_all.handlebars')
-const showMyReviews = require('../templates/reviews_current_user.handlebars')
+const showAllReviews = require('../templates/reviews_all_listing.handlebars')
+const showMyReviews = require('../templates/reviews_current_user_listing.handlebars')
 // const api = require('./api.js')
 // const ui = require('./ui.js')
 
@@ -34,9 +34,10 @@ const deleteReviewFailure = (error) => {
 }
 
 const updateReviewSuccess = (data) => {
-  $('.content').hide()
+  // $('.content').hide()
   $('.upModal').modal('toggle')
   $('#up-rev-success-modal').modal('show')
+  $('#ind-up-review').trigger('reset')
 }
 
 const updateReviewFailure = (error) => {
