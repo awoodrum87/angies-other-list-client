@@ -2,7 +2,7 @@
 
 const store = require('../store.js')
 const showAllReviews = require('../templates/reviews_all_listing.handlebars')
-const showMyReviews = require('../templates/reviews_current_user.handlebars')
+const showMyReviews = require('../templates/reviews_current_user_listing.handlebars')
 // const api = require('./api.js')
 // const ui = require('./ui.js')
 
