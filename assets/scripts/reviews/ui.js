@@ -1,7 +1,7 @@
 'use strict'
 
 const store = require('../store.js')
-const showAllReviews = require('../templates/reviews_all.handlebars')
+const showAllReviews = require('../templates/reviews_all_listing.handlebars')
 const showMyReviews = require('../templates/reviews_current_user.handlebars')
 // const api = require('./api.js')
 // const ui = require('./ui.js')
