@@ -39,11 +39,13 @@ const updateReviewFailure = (error) => {
 }
 
 const getReviewsSuccess = (data) => {
+  console.log('get all reviews ui')
   const showReviewsHTML = showAllReviews({reviews: data.reviews})
   $('.content').html(showReviewsHTML)
 }
 
 const getMyReviewsSuccess = (data) => {
+  console.log('get my reviews ui')
   const showMyReviewsHTML = showMyReviews({reviews: data.reviews})
   $('.content').html(showMyReviewsHTML)
 }

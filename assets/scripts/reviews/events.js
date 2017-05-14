@@ -35,6 +35,7 @@ const onUpdateReview = function (event) {
 }
 
 const onGetReviews = function (event) {
+  console.log('get reviews events')
   event.preventDefault()
   api.getReviews()
     .then(ui.getReviewsSuccess)
@@ -42,6 +43,7 @@ const onGetReviews = function (event) {
 }
 
 const onGetMyReviews = function (event) {
+  console.log('get my reviews events')
   event.preventDefault()
   api.getMyReviews()
     .then(ui.getMyReviewsSuccess)

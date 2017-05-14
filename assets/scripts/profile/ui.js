@@ -1,12 +1,16 @@
 'use strict'
 
-const visible = require('../visible.js')
+// const visible = require('../visible.js')
 
 const createProfileSuccess = (data) => {
   $('#crProfile').modal('toggle')
   $('#gen-success-modal').modal('show')
-  visible.createReviewHide()
-  visible.crReviewerHide()
+
+  $('.create-review').show()
+  $('#prompt-banner').hide()
+  $('#cr-profile-handle').hide()
+  $('.reviewActions').show()
+  $('#up-pro').show()
 }
 
 const createProfileFailure = (error) => {
@@ -17,7 +21,6 @@ const createProfileFailure = (error) => {
 const updateProfileSuccess = (data) => {
   $('#upProfile').modal('toggle')
   $('#gen-success-modal').modal('show')
-  // $('.create-review').show()
 }
 
 const updateProfileFailure = (error) => {
