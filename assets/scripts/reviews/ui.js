@@ -14,12 +14,7 @@ const createReviewSuccess = (data) => {
 
 const createReviewFailure = (error) => {
   console.error(error)
-  const errorCode = error.status
-  if (errorCode === 500) {
-    $('#cr-err-modal').modal('show')
-  } else if (errorCode === 422) {
-    $('#bl-flds-modal').modal('show')
-  }
+  $('#cr-err-modal').modal('show')
 }
 
 const deleteReviewSuccess = (data) => {

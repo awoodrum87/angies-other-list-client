@@ -1,18 +1,23 @@
 'use strict'
 
+const visible = require('../visible.js')
+
 const createProfileSuccess = (data) => {
   $('#crProfile').modal('toggle')
   $('#gen-success-modal').modal('show')
+  visible.createReviewHide()
+  visible.crReviewerHide()
 }
 
 const createProfileFailure = (error) => {
   console.error(error)
-  $('#bl-flds-modal').modal('show')
+  console.log('create reviewer 3')
 }
 
 const updateProfileSuccess = (data) => {
   $('#upProfile').modal('toggle')
   $('#gen-success-modal').modal('show')
+  // $('.create-review').show()
 }
 
 const updateProfileFailure = (error) => {

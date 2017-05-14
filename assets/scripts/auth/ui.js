@@ -5,19 +5,25 @@ const visible = require('../visible.js')
 
 const createAccountSuccess = (data) => {
   $('#getStartedModal').modal('toggle')
-  $('#gen-success-modal').modal('show')
+  $('#cr-acc-success-modal').modal('show')
 }
 
 const createAccountFailure = (error) => {
   console.error(error)
-  $('#cr-acc-err-modal').modal('show')
+  if (error.responseJSON.password === undefined) {
+    $('#cr-acc-err-taken-modal').modal('show')
+  } else {
+    $('#cr-acc-err-blank-modal').modal('show')
+  }
 }
 
 const loginSuccess = (data) => {
   store.user = data.user
+  console.log(data)
   $('#initiateLogin').modal('toggle')
   visible.loginView()
-  visible.crReviewHide()
+  visible.crReviewerHide()
+  visible.createReviewHide()
 }
 
 const loginFailure = (error) => {

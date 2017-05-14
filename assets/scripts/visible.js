@@ -1,15 +1,25 @@
 'use strict'
 const store = require('./store')
-// const showMyReviews = require('./templates/reviews_current_user.handlebars')
-// const ui = require('../reviews/ui.js')
 
 // when a user logs out, hide elements of the page
 
-const crReviewHide = function () {
+const createReviewHide = function () {
+  if (store.user.reviewer === null) {
+    $('.create-review').hide()
+  } else {
+    $('.create-review').show()
+    $('#prompt-banner').hide()
+  }
+}
+const crReviewerHide = function () {
   if (store.user.reviewer === null) {
     $('#cr-profile-handle').show()
+    $('.reviewActions').hide()
+    $('#up-pro').hide()
   } else {
     $('#cr-profile-handle').hide()
+    $('.reviewActions').show()
+    $('#up-pro').show()
   }
 }
 const logoutView = function () {
@@ -19,6 +29,7 @@ const logoutView = function () {
   $('.content').hide()
   $('.accountActions').show()
   $('.welcome-page').show()
+  $('#prompt-banner').hide()
 }
 
 // when a user logs in, show the following elements
@@ -27,16 +38,12 @@ const loginView = function () {
   $('.welcome-page').hide()
   $('.reviewActions').show()
   $('.profileActions').show()
-  $('.create-review').show()
+  $('#prompt-banner').show()
 }
 
-const dynamUpHandlebars = function (data) {
-  // // store.store.reviews = data.reviews
-  // const showMyReviewsHTML = showMyReviews({reviews: data.reviews})
-  // $('.content').html(showMyReviewsHTML)
-}
 module.exports = {
   logoutView,
   loginView,
-  crReviewHide
+  crReviewerHide,
+  createReviewHide
 }

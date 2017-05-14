@@ -6,9 +6,10 @@ const api = require('./api')
 const ui = require('./ui')
 
 const onCreateReviewer = function (event) {
+  console.log('create reviewer 1')
   event.preventDefault()
   console.log('data is ', data)
-  console.log('create reviewer click is heard')
+  console.log('create reviewer 2')
   const data = getFormFields(this)
   api.createReviewer(data)
     .then(ui.createProfileSuccess)

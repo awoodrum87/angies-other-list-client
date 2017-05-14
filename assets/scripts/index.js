@@ -20,6 +20,7 @@ $(() => {
   $('.create-review').hide()
   $('.reviewActions').hide()
   $('.profileActions').hide()
+  $('#prompt-banner').hide()
   authEvents.clickHandlers()
   profileEvents.clickHandlers()
   reviewEvents.clickHandlers()
