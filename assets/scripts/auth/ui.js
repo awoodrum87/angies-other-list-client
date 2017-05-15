@@ -6,6 +6,7 @@ const visible = require('../visible.js')
 const createAccountSuccess = (data) => {
   $('#getStartedModal').modal('toggle')
   $('#cr-acc-success-modal').modal('show')
+  visible.clearModals()
 }
 
 const createAccountFailure = (error) => {
@@ -15,6 +16,7 @@ const createAccountFailure = (error) => {
   } else {
     $('#cr-acc-err-blank-modal').modal('show')
   }
+  visible.clearModals()
 }
 
 const loginSuccess = (data) => {
@@ -24,16 +26,19 @@ const loginSuccess = (data) => {
   visible.loginView()
   visible.crReviewerHide()
   visible.createReviewHide()
+  visible.clearModals()
 }
 
 const loginFailure = (error) => {
   console.error(error)
   $('#login-err-modal').modal('show')
+  visible.clearModals()
 }
 
 const logoutSuccess = (data) => {
   store.user = null
   visible.logoutView()
+  visible.clearModals()
 }
 
 const logoutFailure = (error) => {
@@ -43,11 +48,13 @@ const logoutFailure = (error) => {
 const changePasswordSuccess = (data) => {
   $('#chPassword').modal('toggle')
   $('#gen-success-modal').modal('show')
+  visible.clearModals()
 }
 
 const changePasswordFailure = (error) => {
   console.error(error)
   $('#pass-err-modal').modal('show')
+  visible.clearModals()
 }
 
 module.exports = {

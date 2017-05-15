@@ -1,7 +1,12 @@
 'use strict'
 const store = require('./store')
 
-// when a user logs out, hide elements of the page
+const clearModals = function () {
+  $('#login').trigger('reset')
+  $('#create-account').trigger('reset')
+  $('#update-profile').trigger('reset')
+  $('#change-password').trigger('reset')
+}
 
 const createReviewHide = function () {
   if (store.user.reviewer === null) {
@@ -22,6 +27,9 @@ const crReviewerHide = function () {
     $('#up-pro').show()
   }
 }
+
+// when a user logs out, hide elements of the page
+
 const logoutView = function () {
   $('.reviewActions').hide()
   $('.profileActions').hide()
@@ -45,5 +53,6 @@ module.exports = {
   logoutView,
   loginView,
   crReviewerHide,
-  createReviewHide
+  createReviewHide,
+  clearModals
 }
