@@ -3,11 +3,10 @@
 
 # Angie's Other List Client Documentation
 Angie's Other List is a spoof of Angie's List, a review website for service providers.
-Angie's Other List allows employees to review their customers! The tables have turned! Bad tippers
-and rude customers are about to be exposed to the world!
+Angie's Other List allows employees to review their customers! The tables have turned! Bad tippers and rude customers are about to be exposed to the world!
 
-Link to site: https://awoodrum87.github.io/angies-other-list-client/index.html
-
+[Link to Angie's Other List] (https://awoodrum87.github.io/angies-other-list-client/index.html)
+[Link to API Documentation] (https://github.com/awoodrum87/api-angies-other-list)
 # User Stories
 1. As a user I want to be able to perform authentication actions
 #  1.1 Create Account
