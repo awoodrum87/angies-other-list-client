@@ -16,12 +16,13 @@ const onCreateReview = function (event) {
 }
 
 const onDeleteReview = function (event) {
+  console.log('delete button heard')
   event.preventDefault()
   const id = $(this).attr('data-id')
-  console.log('delete review is heard')
   api.deleteReview(id)
     .then(ui.deleteReviewSuccess)
     .catch(ui.deleteReviewFailure)
+    .done(onGetMyReviews)
 }
 
 const onUpdateReview = function (event) {
@@ -32,6 +33,7 @@ const onUpdateReview = function (event) {
   api.updateReview(id, data)
     .then(ui.updateReviewSuccess)
     .catch(ui.updateReviewFailure)
+    .done(onGetMyReviews)
 }
 
 const onGetReviews = function (event) {
@@ -44,7 +46,7 @@ const onGetReviews = function (event) {
 
 const onGetMyReviews = function (event) {
   console.log('get my reviews events')
-  event.preventDefault()
+  // event.preventDefault()
   api.getMyReviews()
     .then(ui.getMyReviewsSuccess)
     .catch(ui.getReviewsFailure)
@@ -74,7 +76,8 @@ const clickHandlers = () => {
   $('#get-started').on('click', onGetStarted)
   $('#legal-statement').on('click', onLegalDisclosure)
   $('.content').on('submit', '#update-review', onUpdateReview)
-  $('.content').on('submit', '#delete-review-form', onDeleteReview)
+  // $('.content').on('submit', '#delete-review-form', onDeleteReview)
+  $('.content').on('click', '.del-btn', onDeleteReview)
 }
 
 module.exports = {

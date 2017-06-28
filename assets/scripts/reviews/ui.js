@@ -19,7 +19,7 @@ const createReviewFailure = (error) => {
 
 const deleteReviewSuccess = (data) => {
   store.review = null
-  $('.delModal').modal('toggle')
+  // $('.delModal').modal('toggle')
   $('#del-rev-success').modal('show')
 }
 
@@ -29,7 +29,9 @@ const deleteReviewFailure = (error) => {
 }
 
 const updateReviewSuccess = (data) => {
-  $('.upModal').modal('toggle')
+  // $('.upModal').modal('toggle')
+  $('body').removeClass('modal-open')
+  $('.modal-backdrop').remove()
   $('#up-rev-success-modal').modal('show')
 }
 

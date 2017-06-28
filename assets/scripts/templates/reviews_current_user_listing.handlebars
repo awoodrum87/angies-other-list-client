@@ -8,7 +8,10 @@
   <li class="my-review-li">Date: {{review.review_date}} </li>
   <li class="my-review-li">Review: {{review.review_text}}</li>
   <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#update{{review.id}}">Update Review</button>
-  <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete{{review.id}}">Delete Review</button>
+  <!-- <button type="button" class="del-btn btn btn-danger" data-toggle="modal" data-target="#delete{{review.id}}">Delete Review</button> -->
+  <!-- <button type="button" class="del-btn btn btn-danger" id="{{quote.id}}" data-id="{{quote.id}}"> Delete Quote </button> -->
+  <button type="button" class="del-btn btn btn-danger" id="{{review.id}}" data-id="{{review.id}}"> Delete Review </button>
+
 </ul>
 </div>
 
@@ -36,7 +39,7 @@
     </div>
 
     <!-- update review modal -->
-    <div class="delModal modal fade" id="delete{{review.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <!-- <div class="delModal modal fade" id="delete{{review.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
@@ -55,5 +58,5 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
 {{/each}}

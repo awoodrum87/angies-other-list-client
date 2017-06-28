@@ -34,7 +34,7 @@ const logoutView = function () {
   $('.reviewActions').hide()
   $('.profileActions').hide()
   $('.create-review').hide()
-  $('.content').hide()
+  $('.content').empty()
   $('.accountActions').show()
   $('.welcome-page').show()
   $('#prompt-banner').hide()
