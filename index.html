@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Angie's Other List</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags unless you know what you are doing -->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags unless you know what you are doing -->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body class="container-fluid">
+
+      <p class='cr-err-message'></p>
+<!-- NAVIGATION BAR -->
+      <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"  data-toggle="modal" data-target="#describe">Angie's Other List</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="#" data-toggle="modal" data-target="#legalModal">Legal Statement <span class="sr-only">(current)</span></a></li>
+      </ul>
+      <ul class="accountActions nav navbar-nav">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Write Reviews <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#" data-toggle="modal" data-target="#getStartedModal">Create an Account</a></li>
+          <li role="separator" class="divider"></li>
+          <li><a href="#" data-toggle="modal" data-target="#initiateLogin">Login to your Account</a></li>
+        </ul>
+      </li>
+    </ul>
+        <ul class="profileActions nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Your Profile <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#" id='cr-profile-handle' data-toggle="modal" data-target="#crProfile">Create a Profile</a></li>
+            <li><a href="#" id='up-pro' data-toggle="modal" data-target="#upProfile">Update Your profile</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#" data-toggle="modal" data-target="#chPassword">Change Password</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#" id= "logout">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="reviewActions nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Review Actions<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <!-- <li><a href="#" data-toggle="modal" data-target="#upProfile">Create Review</a></li> -->
+            <li><a href="#" id="show-my-reviews">View or Edit Your Reviews</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#" id="show-all-reviews">See All Reviews</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<!-- END OF NAV BAR -->
+
+      <!-- Update Profile modal -->
+      <div id="upProfile" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Update Profile content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Update Profile</h4>
+            </div>
+            <div class="modal-body">
+              <form id="update-profile">
+                <fieldset>
+                  <h3>Update Profile</h3>
+                  <input type="text" name="reviewer[industry]" value="" placeholder="New Industry">
+                  <input type="submit" name="submit" value="Update Profile">
+                </fieldset>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Create Profile modal -->
+      <div id="crProfile" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Create Profile content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Create Profile</h4>
+            </div>
+            <div class="modal-body">
+              <form id="create-profile">
+                <fieldset>
+                  <input type="text" name="reviewer[username]" value="" placeholder="username">
+                  <input type="text" name="reviewer[industry]" value="" placeholder="industry">
+                  <input type="submit" name="submit" value="Create Profile">
+                </fieldset>
+              </form>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Change Password modal -->
+      <div id="chPassword" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Change Password content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Change Password</h4>
+            </div>
+            <div class="modal-body">
+              <form id="change-password">
+                <fieldset>
+                  <h3>Change Password</h3>
+                  <input type="password" name="passwords[old]" value="" placeholder="Old Password">
+                  <input type="password" name="passwords[new]" value="" placeholder="New Password">
+                  <input type="submit" name="submit" value="Change Password">
+                </fieldset>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <!-- Login modal -->
+      <div id="initiateLogin" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Login Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Login to Write Reviews! </h4>
+            </div>
+            <div class="modal-body">
+              <form id="login">
+                <fieldset>
+                  <input type="text" name="credentials[email]" value="" placeholder="email">
+                  <input type="password" name="credentials[password]" value="" placeholder="password">
+                  <input type="submit" name="submit" value="Login">
+
+                </fieldset>
+            </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Get started modal -->
+      <div id="getStartedModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Get started Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Create an Account to Start Reviewing Your Customers!
+              Login if you have an account.</h4>
+            </div>
+            <div class="modal-body">
+              <form id="create-account">
+                <fieldset>
+                  <input type="text" name="credentials[email]" value="" placeholder="email">
+                  <input type="password" name="credentials[password]" value="" placeholder="password">
+                  <input type="submit" name="submit" value="Create Account">
+                </fieldset>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Legal Modal -->
+      <div id="legalModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+          <!-- Legal Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Legal Statement</h4>
+            </div>
+            <div class="modal-body">
+              <p>Please don't sue me before this graded.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- About Modal -->
+      <div id="describe" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+          <!-- About Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">About Angie's Other List</h4>
+            </div>
+            <div class="modal-body">
+              <p>On Angie's Other List customer service providers get to review their customers! In 2005 while working
+              part time at a local restaurant Angie, still an angsty and mouthy teenager, had many discussions with her manager about being polite
+              to customers even when they're mean. Angie survived this, and a few more years of customer service work, by knowing one day she would
+              get her chance for revenge! Do you serve a bad tipper that needs to be called out? Know someone that straight up lies about their service
+              get free food? Join Angie's Other List to put them on blast!</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- content on welcome page -->
+      <div class="welcome-page">
+        <h2 id="banner"> Angie's Other List </h2>
+        <h2 id="test"></h2>
+        <p id="description">Putting awful customers on blast since 2017</p>
+        <img src="https://media.giphy.com/media/XrBiWQU23trHy/giphy.gif" alt="Customer Service" id='swanson' style="width:500px;height:400px;">
+      </div>
+      <p id="prompt-banner"> Create a profile to start writing reviews</p>
+      <!-- create review form -->
+      <div class="create-review">
+      <form id="create-review">
+        <fieldset>
+          <h3>Create Review</h3>
+          <hr id="form-line">
+          <textarea id="text-box" rows="2" cols="25" name="review[review_text]" placeholder="Review Text"> </textarea>
+          <input type="date" id="txtDate" name="review[review_date]" value="" placeholder="">
+          <input type="submit" id="pub-rev"name="submit" value="Publish Review">
+        </fieldset>
+      </form>
+      </div>
+
+      <!-- empty div for handlebars -->
+      <div id='content' class='content'>
+      </div>
+      <!-- delete reviews button -->
+
+      <!-- error handling modals -->
+
+      <!-- Create Profile Error Modal -->
+      <div id="cr-err-modal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Create Profile Error Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Error!</h4>
+            </div>
+            <div class="modal-body">
+              <p>Reviews cannot have blank fields and can only be created if you have created a profile.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">OK!</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Create account (blank email) Error Modal -->
+      <div id="cr-acc-err-blank-modal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Create Account (blank email) Error Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Doh!</h4>
+            </div>
+            <div class="modal-body">
+              <p>You must enter and email and address to create an account.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">OK!</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Create Account (email taken) Error Modal -->
+      <div id="cr-acc-err-taken-modal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Create Account (email taken) Error Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Doh!</h4>
+            </div>
+            <div class="modal-body">
+              <p>This email address is taken.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">OK!</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Login Error Modal -->
+      <div id="login-err-modal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Login Error Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Error!</h4>
+            </div>
+            <div class="modal-body">
+              <p>Make sure you entered the correct email and password and that you have created an account.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">OK!</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Change password Error Modal -->
+      <div id="pass-err-modal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- change password Error Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Error!</h4>
+            </div>
+            <div class="modal-body">
+              <p>Make sure you entered the correct old password.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">OK!</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Update Review Error Modal -->
+      <div id="up-rev-err-modal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Update Review Error Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Error!</h4>
+            </div>
+            <div class="modal-body">
+              <p>Whoah! That review didn't get udpate. Try again.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">OK!</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Create Profile Error Modal -->
+      <div id="cr-pr-err-modal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Create Profile Error Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Error!</h4>
+            </div>
+            <div class="modal-body">
+              <p>You messed that up. Try creating a profile again.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">OK!</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Blank review fields Error Modal -->
+      <div id="bl-flds-modal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Blank review fields Error Modal-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Error!</h4>
+            </div>
+            <div class="modal-body">
+              <p>No blank fields allowed.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">OK!</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Create Account Success Modal -->
+      <div id="cr-acc-success-modal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Create Account Success Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Awesome!</h4>
+            </div>
+            <div class="modal-body">
+              <p>Now sign in to start writing reviews.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">OK!</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="gen-success-modal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Create Profile Error Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Success!</h4>
+            </div>
+            <div class="modal-body">
+              <p>Nicely done</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">OK!</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="del-rev-success" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Create Profile Error Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Deleted</h4>
+            </div>
+            <div class="modal-body">
+              <p>This review has been deleted.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">OK!</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="gen-error-modal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Create Profile Error Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Error</h4>
+            </div>
+            <div class="modal-body">
+              <p>Yikes! Something went wrong. Try that again.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">OK!</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="up-rev-success-modal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Create Profile Error Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Success</h4>
+            </div>
+            <div class="modal-body">
+              <p>You've successfully updated your review!</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">OK!</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="up-pro-fail" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Create Profile Error Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Doh!</h4>
+            </div>
+            <div class="modal-body">
+              <p>You can't update a profile you don't have! Create a profile.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">OK!</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="cr-pro-fail" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Create Profile Error Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Doh!</h4>
+            </div>
+            <div class="modal-body">
+              <p>You already have a profile!</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">OK!</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </body>
+  </html>
